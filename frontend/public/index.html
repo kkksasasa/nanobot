@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>牛马项目 🐂🐎</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+    }
+    .container {
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+    h1 { font-size: 2.5em; margin-bottom: 10px; }
+    .status { 
+      padding: 15px; 
+      background: rgba(0,255,0,0.2); 
+      border-radius: 10px; 
+      margin: 20px 0;
+    }
+    button {
+      background: #fff;
+      color: #667eea;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    button:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🐂🐎 牛马项目</h1>
+    <p>前端已启动，准备干活！</p>
+    <div class="status" id="status">状态：检查中...</div>
+    <button onclick="checkBackend()">测试后端连接</button>
+  </div>
+
+  <script>
+    async function checkBackend() {
+      const statusEl = document.getElementById('status');
+      try {
+        const res = await fetch('/api/backend/api/health');
+        const data = await res.json();
+        statusEl.textContent = `✅ 后端连接成功：${JSON.stringify(data)}`;
+        statusEl.style.background = 'rgba(0,255,0,0.3)';
+      } catch (e) {
+        statusEl.textContent = `❌ 后端未响应：${e.message}`;
+        statusEl.style.background = 'rgba(255,0,0,0.3)';
+      }
+    }
+    // 自动检查
+    checkBackend();
+  </script>
+</body>
+</html>
