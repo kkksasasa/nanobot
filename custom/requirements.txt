@@ -1,0 +1,7 @@
+# 客制化 API 依赖
+
+# FastAPI 和 Uvicorn（nanobot 环境已有）
+# fastapi>=0.109.0
+# uvicorn[standard]>=0.27.0
+
+# 如果需要额外的包，在这里添加

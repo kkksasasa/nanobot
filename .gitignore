@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
+
+# OpenClaw internal
+.openclaw/
+
+# nanobot workspace (generated)
+~/.nanobot/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
